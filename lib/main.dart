@@ -6,6 +6,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  PersonModel persona1 = PersonModel(
+      nombre: 'kevin Yamil',
+      descripcion: 'Ejemplo',
+      iconDerecha: Icons.message_sharp,
+      iconoIzquierda: Icons.person_pin_circle_sharp);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
