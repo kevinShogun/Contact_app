@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,18 +13,26 @@ class MyApp extends StatelessWidget {
       title: 'Flutter App de Kevin',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
+        secondaryHeaderColor: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Container(
-          color: Colors.blueAccent,
+      home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigoAccent,
+          child: Icon(Icons.add_business),
+        ),
+        appBar: AppBar(
+          title: Text('Material App By Me'),
+        ),
+        body: Container(
           child: Center(
             child: Text(
-              'Mi Primer Widget by Kevin Yamil',
+              'Mi Primera App',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  decoration: TextDecoration.none, color: Colors.white),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
