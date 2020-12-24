@@ -10,29 +10,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App de Kevin',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        secondaryHeaderColor: Colors.blueGrey,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.indigoAccent,
-          child: Icon(Icons.add_business),
+        title: 'Flutter App de Kevin',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        appBar: AppBar(
-          title: Text('Material App By Me'),
-        ),
-        body: Container(
-          child: Center(
-            child: Text(
-              'Mi Primera App',
-              textAlign: TextAlign.center,
-            ),
+        home: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            child: Icon(CupertinoIcons.plus_app),
           ),
-        ),
-      ),
-    );
+          appBar: AppBar(
+            actions: <Widget>[
+              IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+              IconButton(icon: Icon(Icons.message_rounded), onPressed: () {}),
+              IconButton(
+                  icon: Icon(Icons.image_search_outlined), onPressed: () {})
+            ],
+            title: Text('Material App By Me'),
+          ),
+          body: Container(
+              child: ListTile(
+            trailing: Icon(CupertinoIcons.mail),
+            leading: Icon(Icons.person_pin),
+            title: Text('Kevin Yamil'),
+            subtitle: Text('Trabajando con Modularización en Fluter'),
+          )),
+        ));
   }
 }
