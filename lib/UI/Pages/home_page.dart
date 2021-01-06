@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/Controllers/main_controller.dart';
 import 'package:flutter_app/Models/Person_Model.dart';
 import 'package:flutter_app/UI/Widgets/custom_list_title.dart';
+import 'package:flutter_app/UI/Widgets/custom_button.dart';
 
 List<PersonModel> personas = [
   persona1,
@@ -66,50 +66,6 @@ class HomePage extends StatelessWidget {
             ]),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatefulWidget {
-  @override
-  _CustomButtonState createState() => _CustomButtonState();
-}
-
-class _CustomButtonState extends State<CustomButton> {
-  String title;
-
-  @override
-  void initState() {
-    super.initState();
-    title = "Agregar Contacto";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        presionadoBoton();
-        setState(() {
-          title = "Nuevo Titulo";
-        });
-      },
-      child: Container(
-        height: 60.0,
-        width: double.infinity,
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.redAccent),
-            borderRadius: BorderRadius.circular(15.0)),
-        margin: EdgeInsets.all(8.0),
-        padding: EdgeInsets.all(8.0),
-        child: Center(
-            child: Text(
-          title,
-          style: TextStyle(
-              color: Colors.redAccent,
-              fontSize: 20.0,
-              fontWeight: FontWeight.w600),
-        )),
       ),
     );
   }

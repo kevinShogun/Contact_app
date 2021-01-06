@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter App de Kevin',
         theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.deepPurple,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: HomePage());
