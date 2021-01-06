@@ -20,18 +20,18 @@ PersonModel persona1 = PersonModel(
     nombre: 'Kevin Garcia',
     descripcion: 'Ejemplo',
     iconoDerecha: Icons.message_sharp,
-    iconoIzquierda: Icons.person_pin_circle_sharp);
+    iconoIzquierda: Icons.person);
 
 PersonModel persona2 = PersonModel(
     nickName: 'Kevin Garcia',
     nombre: 'Ejemplo 2',
     descripcion: 'Ejemplo',
     iconoDerecha: Icons.message_sharp,
-    iconoIzquierda: Icons.person_pin_circle_sharp);
+    iconoIzquierda: Icons.person);
 
 PersonModel persona3 = PersonModel(
     nickName: 'Kevin Garcia',
-    nombre: 'Ejemplo 3',
+    nombre: 'Ejemplo 4',
     descripcion: 'Ejemplo',
     iconoDerecha: Icons.message_sharp,
-    iconoIzquierda: Icons.person_pin_circle_sharp);
+    iconoIzquierda: Icons.person);
