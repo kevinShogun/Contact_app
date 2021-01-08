@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Controllers/main_controller.dart';
+import 'package:flutter_app/UI/Pages/form_contact_page.dart';
 
 class CustomButton extends StatefulWidget {
   @override
@@ -20,8 +21,15 @@ class _CustomButtonState extends State<CustomButton> {
     return InkWell(
       onTap: () {
         presionadoBoton();
+        // Navigator.of(context).push(MaterialPageRoute(builder: (context)
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return FormContactPage();
+        }));
+      },
+      onDoubleTap: () {
+        presionadoBoton();
         setState(() {
-          title = "Nuevo Titulo";
+          title = "Agregar Contacto";
         });
       },
       child: Container(

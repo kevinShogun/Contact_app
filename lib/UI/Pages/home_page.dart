@@ -22,6 +22,8 @@ List<PersonModel> personas = [
 class HomePage extends StatelessWidget {
   String titulo = "Kevin App";
 
+  Widget csButton = new CustomButton();
+
 /* GestureDetector(
         onTap: () {
           print('Boton Presionado!');

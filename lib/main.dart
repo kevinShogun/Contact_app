@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/UI/Pages/home_page.dart';
+import 'package:flutter_app/UI/Pages/form_contact_page.dart';
 
 void main() {
   runApp(MyApp());
