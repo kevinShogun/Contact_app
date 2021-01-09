@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Models/Person_Model.dart';
+import 'package:flutter_app/Models/persona_modelo.dart';
+import 'package:flutter_app/UI/Pages/contact_details_page.dart';
 
 class CustomListTitle extends StatelessWidget {
   final PersonModel person;
@@ -9,6 +10,11 @@ class CustomListTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+        onTap: () {
+          Navigator.pushNamed(context, 'detalle_contacto',
+              arguments: ContactDetailsArguments(
+                  persona: person, contenido: person.descripcion));
+        },
         trailing: SizedBox(
           width: 100.0,
           child: Row(
