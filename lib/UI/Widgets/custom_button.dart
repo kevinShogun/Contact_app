@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Controllers/main_controller.dart';
-import 'package:flutter_app/UI/Pages/form_contact_page.dart';
 
 class CustomButton extends StatelessWidget {
-  ValueNotifier<String> titulo = ValueNotifier<String>('Agregar Contacto');
+  final ValueNotifier<String> titulo =
+      ValueNotifier<String>('Agregar Contacto');
 
   @override
   Widget build(BuildContext context) {

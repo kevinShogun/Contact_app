@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/UI/Pages/form_contact_page.dart';
+import 'package:flutter_app/Controllers/theme_controller.dart';
 import 'package:flutter_app/UI/Widgets/custom_list_title.dart';
 import 'package:flutter_app/UI/Widgets/custom_button.dart';
 import 'package:flutter_app/Models/persona_modelo.dart';
@@ -46,6 +46,8 @@ class _HomePageState extends State<HomePage> {
   int picker;
 
   Widget csButton = new CustomButton();
+
+  ThemeController _controller = ThemeController.instancia;
 
   @override
   void initState() {
@@ -111,11 +113,16 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.menu),
+              icon: Icon(Icons.brightness_3),
               onPressed: () {
                 print('Presionando Menu');
+                _controller.changeTheme(true);
               }),
-          IconButton(icon: Icon(Icons.message_rounded), onPressed: () {}),
+          IconButton(
+              icon: Icon(Icons.wb_sunny),
+              onPressed: () {
+                _controller.changeTheme(false);
+              }),
           IconButton(icon: Icon(Icons.image_search_outlined), onPressed: () {})
         ],
         title: Text(titulo),
