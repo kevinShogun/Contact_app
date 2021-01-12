@@ -3,19 +3,16 @@ import 'package:flutter_app/Controllers/main_controller.dart';
 
 class CustomButton extends StatelessWidget {
   final ValueNotifier<String> titulo =
-      ValueNotifier<String>('Agregar Contacto');
+      ValueNotifier<String>('Lista de Contactos');
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
           presionadoBoton();
+          Navigator.pushNamed(context, 'list_contact');
           // Navigator.of(context).push(MaterialPageRoute(builder: (context)
-          Navigator.pushNamed(context, 'form_contact');
-          titulo.value = 'Value Notifaier button';
-        },
-        onDoubleTap: () {
-          presionadoBoton();
+          //titulo.value = 'Value Notifaier button';
         },
         child: ValueListenableBuilder(
           valueListenable: titulo,

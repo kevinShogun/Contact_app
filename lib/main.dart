@@ -4,6 +4,7 @@ import 'package:flutter_app/Controllers/theme_controller.dart';
 import 'package:flutter_app/UI/Pages/contact_details_page.dart';
 import 'package:flutter_app/UI/Pages/form_contact_page.dart';
 import 'package:flutter_app/UI/Pages/home_page.dart';
+import 'package:flutter_app/UI/Pages/contact_list_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
               routes: {
                 'detalle_contacto': (context) => ContactDetails(),
-                'form_contact': (context) => FormContactPage()
+                'form_contact': (context) => FormContactPage(),
+                'list_contact': (context) => ContactList()
               },
               title: 'Flutter App de Kevin',
               theme: ThemeData(

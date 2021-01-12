@@ -1,39 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/Controllers/theme_controller.dart';
-import 'package:flutter_app/UI/Widgets/custom_list_title.dart';
+import 'package:flutter_app/UI/Pages/contact_list_page.dart';
 import 'package:flutter_app/UI/Widgets/custom_button.dart';
-import 'package:flutter_app/Models/persona_modelo.dart';
 
-List<PersonModel> personas = [
-  persona1,
-  persona2,
-  persona3,
-  persona4,
-  persona5,
-  persona2,
-  persona1,
-  persona3,
-  persona4,
-  persona5
-];
+/*----------- Aqui Colocamos la lista de Persona en el Home --------------*/
 
 List<Widget> pages = [
   Container(
-    child: Column(
-      children: <Widget>[
-        CustomButton(),
-        Expanded(
-          child: ListView(children: <Widget>[
-            for (int i = 0; i < personas.length; i++)
-              CustomListTitle(person: personas[i])
-          ]),
-        ),
-      ],
-    ),
+    child: Column(children: <Widget>[
+      CustomButton(),
+      Icon(
+        Icons.list_alt_rounded,
+        size: 350,
+        color: Colors.deepPurple[300],
+      ),
+    ]),
   ),
-  Container(color: Colors.deepPurpleAccent)
+  ContactList(),
 ];
+
+/*---------------------*/
+
+GlobalKey<ScaffoldState> homeKey = GlobalKey<ScaffoldState>();
+/*Aqui comienza el Home Page */
 
 class HomePage extends StatefulWidget {
   @override
@@ -55,22 +45,10 @@ class _HomePageState extends State<HomePage> {
     picker = 0;
   }
 
-/* GestureDetector(
-        onTap: () {
-          print('Boton Presionado!');
-        },
-        onDoubleTap: () {
-          print('Presionado 2 Veces');
-        },
-        onLongPress: () {
-          print('Presionado Por Mucho Tiempo');
-        }, 
-  Widget customBottum() => 
-  // This widget is the root of your application.
-*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: homeKey,
       drawer: Drawer(
         child: Column(
           children: <Widget>[
@@ -94,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-                title: Text('Change Home'),
+                title: Text('Contact List'),
                 onTap: () {
                   Navigator.pop(context);
                   setState(() {
@@ -104,11 +82,18 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('Presionando Boton Flotante');
+      floatingActionButton: Builder(
+        builder: (BuildContext context) {
+          return FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, 'form_contact');
+              // Scaffold.of(context).showSnackBar(
+              //     SnackBar(content: Text('No puede agregar nuevos contactos')));
+              print('Presionando Boton Flotante');
+            },
+            child: Icon(CupertinoIcons.plus_app),
+          );
         },
-        child: Icon(CupertinoIcons.plus_app),
       ),
       appBar: AppBar(
         actions: <Widget>[
@@ -123,7 +108,12 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 _controller.changeTheme(false);
               }),
-          IconButton(icon: Icon(Icons.image_search_outlined), onPressed: () {})
+          IconButton(
+              icon: Icon(Icons.image_search_outlined),
+              onPressed: () {
+                homeKey.currentState.showSnackBar(
+                    SnackBar(content: Text('No se pueden insertar imagenes')));
+              })
         ],
         title: Text(titulo),
       ),
