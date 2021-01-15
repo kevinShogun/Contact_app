@@ -20,13 +20,15 @@ class CustomListTitle extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Icon(person.iconoDerecha),
+              Icon(Icons.message_outlined),
               SizedBox(width: 20.0),
-              Icon(Icons.call)
+              Icon(Icons.call),
             ],
           ),
         ),
-        leading: Icon(person.iconoIzquierda),
+        leading: CircleAvatar(
+          child: Text(person.nombre[0].toUpperCase()),
+        ),
         title: Text(person.nombre),
         subtitle: Text(person.descripcion));
   }

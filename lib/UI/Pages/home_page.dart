@@ -4,7 +4,7 @@ import 'package:flutter_app/Controllers/theme_controller.dart';
 import 'package:flutter_app/UI/Pages/contact_list_page.dart';
 import 'package:flutter_app/UI/Widgets/custom_button.dart';
 
-/*----------- Aqui Colocamos la lista de Persona en el Home --------------*/
+/*----------- Aqui Colocamos el Home --------------*/
 
 List<Widget> pages = [
   Container(
