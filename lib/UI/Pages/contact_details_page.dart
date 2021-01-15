@@ -10,12 +10,11 @@ class ContactDetails extends StatelessWidget {
         ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(argumentos.persona.nombre),
-        centerTitle: true,
-      ),
-      body: InfoUserPage(),
-    );
+        appBar: AppBar(
+          title: Text(argumentos.persona.nombre),
+          centerTitle: true,
+        ),
+        body: InfoUserPage(foto: argumentos.persona.foto));
   }
 }
 
