@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Models/persona_modelo.dart';
+import 'package:flutter_app/UI/Pages/info_user_page.dart';
 
 class ContactDetails extends StatelessWidget {
   ContactDetails();
@@ -13,9 +14,7 @@ class ContactDetails extends StatelessWidget {
         title: Text(argumentos.persona.nombre),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(argumentos.contenido),
-      ),
+      body: InfoUserPage(),
     );
   }
 }
