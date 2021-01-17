@@ -14,7 +14,7 @@ class ContactDetails extends StatelessWidget {
           title: Text(argumentos.persona.nombre),
           centerTitle: true,
         ),
-        body: InfoUserPage(foto: argumentos.persona.foto));
+        body: InfoUserPage(contacto: argumentos.persona));
   }
 }
 

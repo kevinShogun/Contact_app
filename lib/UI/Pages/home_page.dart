@@ -10,10 +10,10 @@ List<Widget> pages = [
   Container(
     child: Column(children: <Widget>[
       CustomButton(),
-      Icon(
-        Icons.list_alt_rounded,
-        size: 350,
-        color: Colors.deepPurple[300],
+      Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/contact.svg"))),
       ),
     ]),
   ),
@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                   color: Theme.of(context).primaryColor,
                 )),
             ListTile(
+                leading: Icon(Icons.home_outlined),
                 title: Text('Home'),
                 onTap: () {
                   Navigator.pop(context);
@@ -72,6 +73,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
+                leading: Icon(Icons.list_alt_outlined),
                 title: Text('Contact List'),
                 onTap: () {
                   Navigator.pop(context);
@@ -91,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               //     SnackBar(content: Text('No puede agregar nuevos contactos')));
               print('Presionando Boton Flotante');
             },
-            child: Icon(CupertinoIcons.plus_app),
+            child: Icon(CupertinoIcons.add_circled),
           );
         },
       ),

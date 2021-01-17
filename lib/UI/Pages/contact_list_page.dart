@@ -24,7 +24,7 @@ class ContactList extends StatelessWidget {
                       itemBuilder: (BuildContext context, int picker) {
                         return Dismissible(
                             background: Container(
-                              color: Colors.deepPurple,
+                              color: Theme.of(context).primaryColor,
                             ),
                             onDismissed: (direction) => value.removeAt(picker),
                             key: Key(picker.toString()),

@@ -32,7 +32,7 @@ class _FormContactPageState extends State<FormContactPage> {
   }
 
   String validate(String value, String key) =>
-      value.isEmpty ? "Inserte su ${key}" : null;
+      value.isEmpty ? "Inserte su $key" : null;
 
   @override
   void initState() {

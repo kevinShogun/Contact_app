@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Models/persona_modelo.dart';
 
 class InfoUserPage extends StatelessWidget {
-  final String foto;
+  final PersonModel contacto;
 
-  InfoUserPage({this.foto});
+  InfoUserPage({this.contacto});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        SizedBox(height: 20.0),
-        Center(
-          child: imgCaratula(foto),
-        ),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(height: 10.5),
+          imgCaratula(contacto.foto),
+          SizedBox(height: 10.5),
+          Text(contacto.telefono,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          SizedBox(height: 10.5),
+          Text(contacto.descripcion,
+              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15))
+        ],
+      ),
     );
   }
 }

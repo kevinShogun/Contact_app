@@ -20,9 +20,14 @@ class CustomListTitle extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Icon(Icons.message_outlined),
-              SizedBox(width: 20.0),
-              Icon(Icons.call),
+              IconButton(
+                icon: Icon(Icons.message_outlined),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.call_made_outlined),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
