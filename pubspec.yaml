@@ -54,6 +54,7 @@ flutter:
     - assets/images/whatsapp.ico
     - assets/images/contact.png
     - assets/images/contact2.png
+    - assets/scripts/data.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

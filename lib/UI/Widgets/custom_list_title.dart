@@ -7,7 +7,6 @@ class CustomListTitle extends StatelessWidget {
   final PersonModel person;
 
   CustomListTitle({this.person});
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -22,7 +21,8 @@ class CustomListTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(
-                icon: Icon(MdiIcons.whatsapp),
+                icon: Image.asset("assets/images/whatsapp.ico",
+                    fit: BoxFit.contain),
                 onPressed: () {},
               ),
               IconButton(

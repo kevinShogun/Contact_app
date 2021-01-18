@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/Controllers/theme_controller.dart';
 import 'package:flutter_app/UI/Pages/contact_list_page.dart';
 import 'package:flutter_app/UI/Widgets/custom_button.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 /*----------- Aqui Colocamos el Home --------------*/
 
@@ -69,9 +70,17 @@ class _HomePageState extends State<HomePage> {
                   });
                 }),
             ListTile(
+              leading: Icon(MdiIcons.contactsOutline),
               title: Text('Second Page'),
               onTap: () {
                 Navigator.pushNamed(context, 'form_contact');
+              },
+            ),
+            ListTile(
+              leading: Icon(MdiIcons.accountCircleOutline),
+              title: Text('User Page'),
+              onTap: () {
+                Navigator.pushNamed(context, 'user_page');
               },
             ),
             ListTile(
