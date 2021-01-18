@@ -22,5 +22,5 @@ class ContactDetailsArguments {
   final PersonModel persona;
   final String contenido;
 
-  ContactDetailsArguments({this.persona, this.contenido = "Ejemplode Texto"});
+  ContactDetailsArguments({this.persona, this.contenido = "Ejemplo de Texto"});
 }

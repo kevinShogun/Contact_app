@@ -50,8 +50,10 @@ flutter:
   assets:
     - assets/images/yo.jpg
     - assets/images/yo2.jpg
-    - assets/images/whatsapp.svg
-    - assets/images/contact.svg
+    - assets/images/whatsapp.png
+    - assets/images/whatsapp.ico
+    - assets/images/contact.png
+    - assets/images/contact2.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

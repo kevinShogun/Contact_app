@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Models/persona_modelo.dart';
 import 'package:flutter_app/UI/Pages/contact_details_page.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class CustomListTitle extends StatelessWidget {
   final PersonModel person;
@@ -21,11 +22,11 @@ class CustomListTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.message_outlined),
+                icon: Icon(MdiIcons.whatsapp),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(Icons.call_made_outlined),
+                icon: Icon(MdiIcons.phoneInTalkOutline),
                 onPressed: () {},
               ),
             ],

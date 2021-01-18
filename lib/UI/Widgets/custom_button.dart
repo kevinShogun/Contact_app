@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Controllers/main_controller.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton extends StatelessWidget {
   final ValueNotifier<String> titulo =
-      ValueNotifier<String>('Lista de Contactos');
+      ValueNotifier<String>('Agregar de Contactos');
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +27,11 @@ class CustomButton extends StatelessWidget {
               margin: EdgeInsets.all(8.0),
               padding: EdgeInsets.all(8.0),
               child: Center(
-                  child: Text(
-                value,
-                style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w600),
-              )),
+                  child: Text(value,
+                      style: GoogleFonts.biryani(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 18.0,
+                      ))),
             );
           },
         ));

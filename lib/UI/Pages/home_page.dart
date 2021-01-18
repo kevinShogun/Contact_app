@@ -11,9 +11,11 @@ List<Widget> pages = [
     child: Column(children: <Widget>[
       CustomButton(),
       Container(
+        height: 400,
+        width: 400,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/contact.svg"))),
+                image: AssetImage("assets/images/contact.png"))),
       ),
     ]),
   ),
