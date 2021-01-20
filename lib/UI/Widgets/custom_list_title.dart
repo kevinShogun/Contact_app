@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Models/persona_modelo.dart';
 import 'package:flutter_app/UI/Pages/contact_details_page.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomListTitle extends StatelessWidget {
   final PersonModel person;
@@ -23,11 +24,15 @@ class CustomListTitle extends StatelessWidget {
               IconButton(
                 icon: Image.asset("assets/images/whatsapp.ico",
                     fit: BoxFit.contain),
-                onPressed: () {},
+                onPressed: () {
+                  launch("https/wa.me/+505${person.telefono}?text='hola'");
+                },
               ),
               IconButton(
                 icon: Icon(MdiIcons.phoneInTalkOutline),
-                onPressed: () {},
+                onPressed: () {
+                  launch("tel:${person.telefono}");
+                },
               ),
             ],
           ),

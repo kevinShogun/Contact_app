@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: Center(
                   child: Text(value,
-                      style: GoogleFonts.biryani(
+                      style: GoogleFonts.pollerOne(
                         color: Theme.of(context).primaryColor,
                         fontSize: 19.0,
                       ))),

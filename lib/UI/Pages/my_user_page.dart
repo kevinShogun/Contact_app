@@ -19,10 +19,8 @@ class MyUserPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
               icon: Icon(MdiIcons.accountEditOutline),
-              onPressed: () async {
-                print("Presionado de Boton");
-                await descargaImagen();
-                print('Se esta mostrando la Imagen');
+              onPressed: () {
+                Navigator.pushNamed(context, 'form_user_page');
               })
         ],
         title: Text('Información del Administrador'),
