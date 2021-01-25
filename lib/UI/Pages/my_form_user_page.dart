@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/Services/file_service.dart';
 /* import 'package:flutter_app/Controllers/contact_list_controller.dart';
 import 'package:flutter_app/Models/persona_modelo.dart'; */
+import 'package:image_picker/image_picker.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 GlobalKey<FormState> formUsertKey = GlobalKey<FormState>();
@@ -76,11 +79,12 @@ class _FormUserPage extends State<FormUserPage> {
                         height: 150.0,
                         width: 150.0,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100.0),
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/yo.jpg"),
-                                fit: BoxFit.contain)),
-                        child: SizedBox() /* Image.file(File(path)) */),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.file(
+                          File(path),
+                          fit: BoxFit.cover,
+                        )),
                 SizedBox(height: 12.0),
                 /* 
                 *Nombre del contacto
@@ -99,7 +103,9 @@ class _FormUserPage extends State<FormUserPage> {
                             borderRadius: BorderRadius.circular(50.0))),
                     onChanged: (value) => () {}),
                 SizedBox(height: 8.5),
-                /* Descripcion del Contacto*/
+                /* 
+                *Descripcion del Contacto
+                */
                 TextFormField(
                   maxLength: 100,
                   validator: (value) => validate(value, "Descripcion"),
@@ -114,7 +120,9 @@ class _FormUserPage extends State<FormUserPage> {
                   onChanged: (value) => () {},
                 ),
                 SizedBox(height: 8.5),
-                /* Telefono del COntacto */
+                /*
+                 *Telefono del Contacto
+                 */
                 TextFormField(
                     keyboardType: TextInputType.phone,
                     maxLength: 15,
@@ -130,25 +138,25 @@ class _FormUserPage extends State<FormUserPage> {
                     onChanged: (value) => () {}),
                 SizedBox(height: 40),
 
-                /* Acceso a Camara y Galeria */
+                /* 
+                  *Acceso a Camara y Galeria 
+                */
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     RaisedButton.icon(
-                      onPressed: () /* async */ {
-                        /*
-                        var image = ImagePicker.plataform.pickImage(
-                          source: ImageSource.camera
-                        );
-                         
-                         * String image = await FileService.getImage(camera: true);
-                         
-                         *setState((){
-                         * path = image;
-                         *}); 
+                      onPressed: () async {
+                        /* var image = await ImagePicker.platform
+                            .pickImage(source: ImageSource.camera);
+                            *ASi se accede a la camara
+                            */
 
-                         */
+                        String image = await FileService.getImage(camera: true);
+
+                        setState(() {
+                          path = image;
+                        });
                       },
                       icon: Icon(
                         MdiIcons.cameraAccount,
@@ -159,18 +167,14 @@ class _FormUserPage extends State<FormUserPage> {
                       color: Colors.deepPurpleAccent.shade200,
                     ),
                     RaisedButton.icon(
-                      onPressed: () /* async */ {
-                        /*
-                        var image = ImagePicker.plataform.pickImage(
-                          source: ImageSource.gallery
-                        );
-                        * String image = await FileService.getImage();
+                      onPressed: () async {
+                        /*  var image = ImagePicker.platform
+                            .pickImage(source: ImageSource.gallery); */
+                        String image = await FileService.getImage();
 
-                         *setState((){
-                         * path = image;
-                         *}); 
-
-                         */
+                        setState(() {
+                          path = image;
+                        });
                       },
                       icon: Icon(
                         MdiIcons.image,
