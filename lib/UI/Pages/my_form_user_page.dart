@@ -1,10 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/Services/file_service.dart';
-/* import 'package:flutter_app/Controllers/contact_list_controller.dart';
-import 'package:flutter_app/Models/persona_modelo.dart'; */
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_app/Services/shared_preference_service.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 GlobalKey<FormState> formUsertKey = GlobalKey<FormState>();
@@ -16,13 +15,10 @@ class FormUserPage extends StatefulWidget {
 }
 
 class _FormUserPage extends State<FormUserPage> {
-/*   TextEditingController _nameController,
+  TextEditingController _nameController,
       _descriptionController,
       _cellphoneController;
 
-  ContactListController _controller = ContactListController.instancia;
-  PersonModel _personModel = PersonModel();
- */
   String path = "";
 
   bool validateAll() {
@@ -41,9 +37,9 @@ class _FormUserPage extends State<FormUserPage> {
   @override
   void initState() {
     super.initState();
-    /*  _nameController = TextEditingController(text: '');
+    _nameController = TextEditingController(text: '');
     _descriptionController = TextEditingController(text: '');
-    _cellphoneController = TextEditingController(text: ''); */
+    _cellphoneController = TextEditingController(text: '');
   }
 
   @override
@@ -90,6 +86,9 @@ class _FormUserPage extends State<FormUserPage> {
                 *Nombre del contacto
                 */
                 TextFormField(
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp("[A-Z a-z]"))
+                    ],
                     keyboardType: TextInputType.name,
                     maxLength: 30,
                     validator: (value) => validate(value, "Nombre"),
@@ -101,7 +100,8 @@ class _FormUserPage extends State<FormUserPage> {
                             borderSide: BorderSide(
                                 color: Theme.of(context).primaryColor),
                             borderRadius: BorderRadius.circular(50.0))),
-                    onChanged: (value) => () {}),
+                    onChanged: (value) => () {},
+                    controller: _nameController),
                 SizedBox(height: 8.5),
                 /* 
                 *Descripcion del Contacto
@@ -118,6 +118,7 @@ class _FormUserPage extends State<FormUserPage> {
                               BorderSide(color: Theme.of(context).primaryColor),
                           borderRadius: BorderRadius.circular(50.0))),
                   onChanged: (value) => () {},
+                  controller: _descriptionController,
                 ),
                 SizedBox(height: 8.5),
                 /*
@@ -135,7 +136,8 @@ class _FormUserPage extends State<FormUserPage> {
                             borderSide: BorderSide(
                                 color: Theme.of(context).primaryColor),
                             borderRadius: BorderRadius.circular(50.0))),
-                    onChanged: (value) => () {}),
+                    onChanged: (value) => () {},
+                    controller: _cellphoneController),
                 SizedBox(height: 40),
 
                 /* 
@@ -190,9 +192,22 @@ class _FormUserPage extends State<FormUserPage> {
                 /**Boton de agregar Conacto */
                 OutlinedButton(
                   onPressed: () {
-                    if (validateAll()) {
-                      // TODO: cambiar valores del usuario Admin.
-                    }
+                    File imgFile = File(path);
+                    String imgConvert = base64Encode(imgFile.readAsBytesSync());
+
+                    SharedPreferencesService.writeString(
+                        key: 'nombre', value: _nameController.text);
+
+                    SharedPreferencesService.writeString(
+                        key: 'descripcion', value: _descriptionController.text);
+
+                    SharedPreferencesService.writeString(
+                        key: 'telefono', value: _cellphoneController.text);
+
+                    SharedPreferencesService.writeString(
+                        key: 'imagen', value: imgConvert);
+
+                    print('Guardando..');
                   },
                   child: Column(
                     children: <Widget>[

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Services/shared_preference_service.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MyUserPage extends StatelessWidget {
@@ -34,15 +35,31 @@ class MyUserPage extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
           SizedBox(height: 20.0),
-          Container(
-              height: 150.0,
-              width: 150.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100.0),
-                  image: DecorationImage(
-                      /*  image: NetworkImage("url") */
-                      image: AssetImage('assets/images/yo.jpg'),
-                      fit: BoxFit.cover))),
+          FutureBuilder(
+              future: SharedPreferencesService.readString(key: 'imagen'),
+              builder: (context, resultado) {
+                if (resultado.hasData) {
+                  return Container(
+                      height: 150.0,
+                      width: 150.0,
+                      child: Image.memory(
+                        base64Decode(resultado.data),
+                        fit: BoxFit.cover,
+                      ));
+                } else {
+                  return Container(
+                      height: 150.0,
+                      width: 150.0,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100.0),
+                          image: DecorationImage(
+                              /*  image: NetworkImage(
+                          "https://livecoins.com.br/wp-content/uploads/2021/01/programador-blockchain.jpg"),
+                      */
+                              image: AssetImage('assets/images/yo.jpg'),
+                              fit: BoxFit.cover)));
+                }
+              }),
           SizedBox(height: 30.0),
           FutureBuilder(
               future: DefaultAssetBundle.of(context)

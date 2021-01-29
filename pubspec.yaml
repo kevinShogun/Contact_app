@@ -32,6 +32,8 @@ dependencies:
   material_design_icons_flutter: ^4.0.5855
   url_launcher: ^5.7.10
   image_picker: ^0.6.7+21
+  dependencies: ^0.1.5
+  shared_preferences: ^0.5.12+4
 
 dev_dependencies:
   flutter_test:
