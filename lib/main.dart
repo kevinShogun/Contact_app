@@ -7,6 +7,7 @@ import 'package:flutter_app/UI/Pages/home_page.dart';
 import 'package:flutter_app/UI/Pages/contact_list_page.dart';
 import 'package:flutter_app/UI/Pages/my_form_user_page.dart';
 import 'package:flutter_app/UI/Pages/my_user_page.dart';
+import 'package:flutter_app/UI/Pages/news_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
                 'form_contact': (context) => FormContactPage(),
                 'list_contact': (context) => ContactList(),
                 'user_page': (context) => MyUserPage(),
-                'form_user_page': (context) => FormUserPage()
+                'form_user_page': (context) => FormUserPage(),
+                'news_page': (context) => NewsPage()
               },
               title: 'Flutter App de Kevin',
               theme: ThemeData(

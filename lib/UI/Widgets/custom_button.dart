@@ -22,16 +22,17 @@ class CustomButton extends StatelessWidget {
               height: 60.0,
               width: double.infinity,
               decoration: BoxDecoration(
-                  border: Border.all(color: Theme.of(context).primaryColor),
+                  border: Border.all(
+                      color: Theme.of(context).primaryColor, width: 2.5),
                   borderRadius: BorderRadius.circular(50.0)),
               margin: EdgeInsets.all(8.0),
               padding: EdgeInsets.all(8.0),
               child: Center(
                   child: Text(value,
-                      style: GoogleFonts.pollerOne(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 19.0,
-                      ))),
+                      style: GoogleFonts.ubuntu(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w800))),
             );
           },
         ));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/Controllers/theme_controller.dart';
 import 'package:flutter_app/UI/Pages/contact_list_page.dart';
+import 'package:flutter_app/UI/Pages/news_page.dart';
 import 'package:flutter_app/UI/Widgets/custom_button.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -21,6 +22,7 @@ List<Widget> pages = [
     ]),
   ),
   ContactList(),
+  NewsPage(),
 ];
 
 /*---------------------*/
@@ -81,6 +83,13 @@ class _HomePageState extends State<HomePage> {
               title: Text('User Page'),
               onTap: () {
                 Navigator.pushNamed(context, 'user_page');
+              },
+            ),
+            ListTile(
+              leading: Icon(MdiIcons.newspaperVariantOutline),
+              title: Text('News Page'),
+              onTap: () {
+                Navigator.pushNamed(context, 'news_page');
               },
             ),
             ListTile(
