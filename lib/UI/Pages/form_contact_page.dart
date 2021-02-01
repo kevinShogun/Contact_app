@@ -136,4 +136,12 @@ class _FormContactPageState extends State<FormContactPage> {
           ),
         )));
   }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descriptionController.dispose();
+    _cellphoneController.dispose();
+    super.dispose();
+  }
 }

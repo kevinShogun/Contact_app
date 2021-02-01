@@ -208,6 +208,7 @@ class _FormUserPage extends State<FormUserPage> {
                         key: 'imagen', value: imgConvert);
 
                     print('Guardando..');
+                    Navigator.pushNamed(context, 'user_page');
                   },
                   child: Column(
                     children: <Widget>[
@@ -228,5 +229,13 @@ class _FormUserPage extends State<FormUserPage> {
             ),
           ),
         )));
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descriptionController.dispose();
+    _cellphoneController.dispose();
+    super.dispose();
   }
 }
