@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
                 'list_contact': (context) => ContactList(),
                 'user_page': (context) => MyUserPage(),
                 'form_user_page': (context) => FormUserPage(),
-                'news_page': (context) => NewsPage()
+                'news_page': (context) => NewsPage(),
+                'home_page': (context) => HomePage()
               },
               title: 'Flutter App de Kevin',
               theme: ThemeData(
